@@ -4,7 +4,7 @@ import { cmsGet } from '@/lib/cms-client';
 
 type ApiBlogPost = {
   slug: string; title: string; excerpt: string; content?: string; cover_image: string;
-  author_name: string; published_at: string; featured: boolean; tags?: string[];
+  author_name: string; published_at: string; updated_at?: string; featured: boolean; tags?: string[];
   seo?: { meta_title: string; meta_description: string; keywords: string[] };
 };
 
@@ -20,7 +20,7 @@ function blog(item: ApiBlogPost): BlogPostItem {
   return {
     slug: item.slug, title: item.title, description: item.excerpt, content: item.content ?? item.excerpt,
     blog_keywords: (item.seo?.keywords ?? item.tags ?? []).join(', '), image: asset(item.cover_image),
-    post_date: item.published_at, post_by: item.author_name, featured: item.featured,
+    post_date: item.published_at, modified_date: item.updated_at, post_by: item.author_name, featured: item.featured,
     seo: { metaTitle: item.seo?.meta_title ?? item.title, metaDescription: item.seo?.meta_description ?? item.excerpt, keywords: item.seo?.keywords ?? item.tags ?? [] },
     tags: item.tags ?? [],
   };

@@ -1,14 +1,11 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import { ArrowRight, Calendar, Search, User } from 'lucide-react';
 import Navigation from '@/components/sections/navigation';
 import Footer from '@/components/sections/footer';
-import { blogPosts as fallbackPosts, type BlogPostItem } from '@/data/blog-posts';
-import { getCmsBlogPost } from '@/lib/cms-content';
-
-const isHtml = (value: string) => /<\/?[a-z][\s\S]*>/i.test(value);
+import type { BlogPostItem } from '@/data/blog-posts';
 
 function PostCard({ post }: { post: BlogPostItem }) {
   return <a href={`/blog/${post.slug}/`} className="block overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
@@ -17,55 +14,9 @@ function PostCard({ post }: { post: BlogPostItem }) {
   </a>;
 }
 
-function BlogArticle({ slug }: { slug: string }) {
-  const fallback = fallbackPosts.find((item) => item.slug === slug) ?? null;
-  const [post, setPost] = useState<BlogPostItem | null>(fallback);
-  const [missing, setMissing] = useState(false);
-
-  useEffect(() => { getCmsBlogPost(slug).then((item) => { if (item) setPost(item); else if (!fallback) setMissing(true); }); }, [slug]);
-  useEffect(() => {
-    if (post) document.title = `${post.seo?.metaTitle ?? post.title} | UPSENSE`;
-  }, [post]);
-
-  if (!post) return <><Navigation /><main className="flex min-h-[70vh] items-center justify-center bg-white px-6 pt-24 text-center"><div><p className="text-sm font-bold uppercase tracking-[0.2em] text-[#f58b01]">Article</p><h1 className="mt-4 text-3xl font-bold text-[#013e78]">{missing ? 'Artikel tidak ditemukan.' : 'Memuat artikel...'}</h1></div></main><Footer /></>;
-
-  const jsonLd = {
-    '@context': 'https://schema.org', '@type': 'BlogPosting', '@id': `https://upsense.co.id/blog/${post.slug}/#article`, headline: post.title, description: post.seo?.metaDescription ?? post.description,
-    image: [post.image], datePublished: post.post_date, dateModified: post.post_date,
-    author: { '@type': 'Person', name: post.post_by }, publisher: { '@type': 'Organization', '@id': 'https://upsense.co.id/#organization', name: 'UPSENSE', url: 'https://upsense.co.id' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://upsense.co.id/blog/${post.slug}/` }, url: `https://upsense.co.id/blog/${post.slug}/`, keywords: post.seo?.keywords ?? post.tags ?? [],
-  };
-
-  return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    <Navigation />
-    <main className="bg-white pt-20"><article>
-      <section className="bg-[#0a1e43] py-16 text-white md:py-24"><div className="container mx-auto grid max-w-8xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:px-12">
-        <div className="relative aspect-[4/3] w-full max-w-sm overflow-hidden rounded-3xl"><Image src={post.image} alt={post.title} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" /></div>
-        <div><div className="mb-5 flex flex-wrap gap-4 text-sm text-white/80"><span className="flex items-center gap-2"><Calendar className="h-4 w-4" />{new Date(post.post_date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</span><span className="flex items-center gap-2"><User className="h-4 w-4" />{post.post_by}</span></div>
-        <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">{post.title}</h1>
-        <p className="mt-6 max-w-6xl text-lg leading-relaxed text-white/85 md:text-xl">{post.description}</p></div>
-      </div></section>
-      <section className="py-16 md:py-20"><div className="container mx-auto max-w-6xl px-6 lg:px-12">
-        {isHtml(post.content) ? <div className="prose prose-lg max-w-none text-gray-700 prose-headings:text-black prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-black prose-a:text-[#013e78]" dangerouslySetInnerHTML={{ __html: post.content }} /> : <p className="text-lg leading-relaxed text-gray-700">{post.content}</p>}
-        {post.tags?.length ? <div className="mt-12 flex flex-wrap gap-2 border-t border-gray-200 pt-6">{post.tags.map((tag) => <span key={tag} className="rounded-full bg-[#f5f8fc] px-3 py-1 text-sm font-medium text-[#013e78]">{tag}</span>)}</div> : null}
-        <div className="mt-12 rounded-3xl bg-[#fff4e0] p-8"><h2 className="text-2xl font-bold text-[#013e78]">Butuh solusi digital untuk bisnis Anda?</h2><p className="mt-3 text-gray-600">Diskusikan kebutuhan sistem, proses, atau transformasi digital bersama tim UPSENSE.</p><a href="/contact/" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#013e78] px-6 py-3 font-semibold text-white">Hubungi UPSENSE <ArrowRight className="h-4 w-4" /></a></div>
-      </div></section>
-    </article></main>
-    <Footer />
-  </>;
-}
-
 export default function BlogClient({ initialPosts }: { initialPosts: BlogPostItem[] }) {
   const [query, setQuery] = useState('');
-  const [routeSlug, setRouteSlug] = useState<string | null>(null);
-
-  useEffect(() => {
-    const segments = window.location.pathname.split('/').filter(Boolean);
-    if (segments[0] === 'blog' && segments[1]) setRouteSlug(segments[1]);
-  }, []);
   const visiblePosts = useMemo(() => { const value = query.trim().toLowerCase(); return value ? initialPosts.filter((post) => `${post.title} ${post.description} ${post.tags?.join(' ')}`.toLowerCase().includes(value)) : initialPosts; }, [initialPosts, query]);
-  if (routeSlug) return <BlogArticle slug={routeSlug} />;
 
   const featured = visiblePosts.filter((post) => post.featured);
   const regular = visiblePosts.filter((post) => !post.featured);

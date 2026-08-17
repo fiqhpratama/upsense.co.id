@@ -6,6 +6,7 @@ export type BlogPostItem = {
   blog_keywords: string;
   image: string;
   post_date: string;
+  modified_date?: string;
   post_by: string;
   featured?: boolean;
   seo?: {
