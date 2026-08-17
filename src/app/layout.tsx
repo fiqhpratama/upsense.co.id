@@ -4,6 +4,7 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { MessageCircle } from "lucide-react";
 import { UPSENSE_META_DESCRIPTION } from "@/lib/site-meta";
 import { UPSENSE_META_KEYWORDS } from "@/lib/site-keywords";
@@ -115,6 +116,7 @@ gtag('config', 'G-SWV1XGRBS6');`}
           Hubungi Kami
         </a>
         <VisualEditsMessenger />
+        <SpeedInsights />
       </body>
     </html>
   );
