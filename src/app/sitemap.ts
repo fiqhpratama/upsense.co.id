@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { blogPosts } from '@/data/blog-posts';
 import { caseStudyPosts } from '@/data/case-study-posts';
+import { getPortfolioSlugs } from '@/lib/portfolio-content';
 
 export const dynamic = 'force-static';
 
@@ -25,5 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...blogPosts.map((post) => ({ url: `${SITE_URL}/blog/${post.slug}/`, lastModified: new Date(post.post_date), changeFrequency: 'daily' as const, priority: 0.7 })),
     ...caseStudyPosts.map((post) => ({ url: `${SITE_URL}/post/${post.slug}/`, lastModified: new Date(post.publishedDate), changeFrequency: 'daily' as const, priority: 0.7 })),
+    ...getPortfolioSlugs().map((slug) => ({ url: `${SITE_URL}/portfolio/${slug}/`, lastModified, changeFrequency: 'weekly' as const, priority: 0.7 })),
   ];
 }
