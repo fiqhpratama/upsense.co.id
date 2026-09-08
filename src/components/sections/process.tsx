@@ -21,7 +21,7 @@ export default function ProcessSection({ headingLevel = 'h2' }: { headingLevel?:
   useEffect(() => {
     getCmsCaseStudies().then((items) => {
       if (items?.length) setProjects(mapProjects(items));
-    });
+    }).catch(() => {}); // ponytail: saat CMS gagal, biarkan fallback statis dipakai
   }, []);
 
   return <ProjectsSectionClient projects={projects} headingLevel={headingLevel} />;
