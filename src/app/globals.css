@@ -272,7 +272,22 @@
   }
 }
 
-/* Hide Next.js error overlay portal */
+/* Hide nextjs error overlay portal */
 nextjs-portal {
   display: none !important;
+}
+
+/* CMS articles ship <p><br></p> spacer paragraphs; hide them instead of sanitizing HTML in JS.
+   ponytail: :has() needs 2023+ browsers; old browsers just see today's airy spacing */
+.prose :where(p):has(> br:only-child) {
+  display: none;
+}
+
+/* ponytail: prose-lg heading bottom margins (h2 32px / h3 16px) read too airy next to 17px body */
+.prose :where(h2) {
+  margin-bottom: 0.75rem;
+}
+
+.prose :where(h3) {
+  margin-bottom: 0.5rem;
 }
