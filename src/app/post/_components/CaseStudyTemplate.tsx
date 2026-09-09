@@ -98,16 +98,19 @@ export function CaseStudyTemplate({ data }: { data: CaseStudyData }) {
               <div className="absolute inset-0 bg-gradient-to-br from-[#013e78]/92 via-[#013e78]/82 to-[#0c4273]/88" />
             </div>
             <div className="container relative z-10 mx-auto px-6 lg:px-12">
-              <div className="max-w-4xl">
-                <p className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm">
-                  {data.category}
-                </p>
-                <h1 className="max-w-5xl text-4xl font-bold leading-tight text-white md:text-6xl">{data.title}</h1>
-                <div className="mt-6 max-w-3xl">
+              {/* ponytail: 2-col hero — CMS summaries are 3 paragraphs; single column left the right side empty */}
+              <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center">
+                <div>
+                  <p className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm">
+                    {data.category}
+                  </p>
+                  <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">{data.title}</h1>
+                </div>
+                <div>
                   <RichTextBlock
                     content={data.summary}
-                    htmlClassName="prose prose-invert prose-lg max-w-none !text-white [&_*]:!text-white [&_p]:!text-white [&_li]:!text-white [&_strong]:!text-white [&_em]:!text-white [&_a]:!text-white [&_blockquote]:!text-white [&_h1]:!text-white [&_h2]:!text-white [&_h3]:!text-white [&_h4]:!text-white [&_h5]:!text-white [&_h6]:!text-white prose-a:underline prose-ul:list-disc prose-ol:list-decimal md:text-xl"
-                    textClassName="text-lg leading-relaxed text-white md:text-xl"
+                    htmlClassName="prose prose-invert max-w-none !text-white [&_*]:!text-white [&_p]:!text-white [&_li]:!text-white [&_strong]:!text-white [&_em]:!text-white [&_a]:!text-white [&_blockquote]:!text-white [&_ul]:!text-white [&_ol]:!text-white prose-a:underline prose-ul:list-disc prose-ol:list-decimal md:text-lg"
+                    textClassName="text-lg leading-relaxed text-white md:text-lg"
                   />
                 </div>
               </div>
