@@ -1,0 +1,38 @@
+# UPSENSE (PT UPSENSE Teknologi Indonesia)
+
+> Perusahaan pengembangan software custom, ERP, HRIS, aplikasi web dan mobile, serta layanan transformasi digital untuk perusahaan di Indonesia. Berkantor di Jakarta Utara.
+
+## Facts
+
+- Legal name: PT UPSENSE Teknologi Indonesia
+- Brand: UPSENSE
+- Website: https://upsense.co.id
+- Address: Wisma SMR, Jl. Yos Sudarso Lt 9, Unit 904, RT.10/RW.11, Sunter Jaya, Kec. Tj. Priok, Jakarta Utara, DKI Jakarta 14350, Indonesia
+- Phone/WhatsApp (Sales): +62 852 1700 0041
+- Email (Sales): sales@upsense.co.id
+- Google Maps: https://maps.app.goo.gl/ejfkCLspwKYMNZDL8
+- Instagram: https://www.instagram.com/upsense.id/
+- LinkedIn: https://id.linkedin.com/company/pt-upsense-teknologi-indonesia
+
+## Services
+
+- [Custom Software Development](https://upsense.co.id/services/layanan-customisasi-software-bisnis/): ERP, CRM, HRIS, warehouse, workflow automation, dan integrasi sistem yang mengikuti proses bisnis.
+- [Website Development](https://upsense.co.id/services/layanan-pengembangan-website/): Pengembangan website perusahaan dan platform web yang terintegrasi dengan proses bisnis.
+- [Mobile App Development](https://upsense.co.id/services/layanan-pembuatan-aplikasi-mobile/): Aplikasi Android, iOS, dan cross-platform untuk pelanggan maupun operasional internal.
+- [Software Development](https://upsense.co.id/services/software-development/): Solusi custom software untuk digitalisasi enterprise dan modernisasi workflow.
+- [Web Development](https://upsense.co.id/services/web-development/): Platform web responsif dan sistem digital terhubung.
+- [Odoo ERP Customization](https://upsense.co.id/services/odoo-erp-customization/): Implementasi dan penyesuaian Odoo untuk finance dan warehouse.
+- [HRIS & Mobile Attendance](https://upsense.co.id/services/core-hris-mobile-attendance/): Sistem HR, absensi mobile, shift, leave, approval, dan data payroll-ready.
+- [Learning Management System](https://upsense.co.id/services/learning-management-system/): Platform pembelajaran digital untuk organisasi.
+- [Cloud & DevOps](https://upsense.co.id/services/cloud-devops/): Migrasi cloud, CI/CD, infrastructure as code, monitoring.
+- [Analytics Solutions](https://upsense.co.id/services/analytic-solutions/): Dashboard interaktif, predictive analytics, integrasi data, custom reports.
+- [Product Design](https://upsense.co.id/services/product-design/): Desain produk digital berbasis riset pengguna.
+- [App Design](https://upsense.co.id/services/app-design/): Desain UI/UX aplikasi mobile.
+
+## Resources
+
+- [Blog](https://upsense.co.id/blog/): Artikel tentang software enterprise, keamanan data, dan transformasi digital. Daftar artikel terbaru tersedia di sitemap: https://upsense.co.id/sitemap.xml
+- [Case Studies](https://upsense.co.id/post/): Studi kasus implementasi sistem untuk klien manufaktur, farmasi, dan distribusi.
+- [Portfolio](https://upsense.co.id/portfolio/): Portofolio proyek yang telah dikerjakan.
+- [Tentang Kami](https://upsense.co.id/about/): Profil perusahaan.
+- [Kontak](https://upsense.co.id/contact/): Hubungi tim sales untuk konsultasi.
