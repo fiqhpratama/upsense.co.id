@@ -14,7 +14,7 @@ const articleUrl = (slug: string) => `${siteUrl}/blog/${slug}/`;
 const serializeJsonLd = (value: object) => JSON.stringify(value).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
 
 export const dynamicParams = true;
-export const revalidate = 300; // ponytail: ISR 5 menit, cukup untuk blog; force-dynamic kalau butuh real-time
+export const revalidate = 60; // ponytail: ISR 1 menit; pilih /api/revalidate kalau butuh instan
 
 export async function generateStaticParams() {
   const posts = await getCmsBlogPosts();

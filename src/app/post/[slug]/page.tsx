@@ -3,7 +3,7 @@ import { getCmsCaseStudy } from '@/lib/cms-content';
 import { CaseStudyTemplate, getCaseStudyMetadata } from '../_components/CaseStudyTemplate';
 
 export const dynamicParams = true;
-export const revalidate = 300; // ponytail: ISR 5 menit, selaras dengan /blog/
+export const revalidate = 60; // ponytail: ISR 1 menit, selaras dengan /blog/
 
 type PageProps = { params: Promise<{ slug: string }> };
 

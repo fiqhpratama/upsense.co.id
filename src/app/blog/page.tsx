@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import BlogClient from './BlogClient';
 import { getCmsBlogPosts } from '@/lib/cms-content';
 
-export const revalidate = 300; // ponytail: ISR 5 menit, cukup untuk blog; force-dynamic kalau butuh real-time
+export const revalidate = 60; // ponytail: ISR 1 menit; pilih /api/revalidate kalau butuh instan
 
 export const metadata: Metadata = {
   title: 'Blog UPSENSE | Insight Teknologi Bisnis',
