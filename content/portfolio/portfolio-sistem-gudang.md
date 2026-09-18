@@ -2,6 +2,9 @@
 title: "TIA Warehouse Inbound System"
 slug: "tunggal-idaman-abdi-inventory-inbound"
 category: "Custom Software Development"
+cardTitle: "Sistem Gudang"
+cardTag: "MANAJEMEN GUDANG"
+order: 3
 industry: "Pharmaceutical"
 solution: "Inbound Receipt & Warehouse Management System"
 platform: "Web Application"

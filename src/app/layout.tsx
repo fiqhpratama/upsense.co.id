@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito_Sans } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
@@ -9,9 +9,21 @@ import { MessageCircle } from "lucide-react";
 import { UPSENSE_META_DESCRIPTION } from "@/lib/site-meta";
 import { UPSENSE_META_KEYWORDS } from "@/lib/site-keywords";
 
-const nunitoSans = Nunito_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-nunito-sans",
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -76,7 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${nunitoSans.variable} antialiased`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SWV1XGRBS6"
           strategy="afterInteractive"

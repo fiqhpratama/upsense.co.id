@@ -2,10 +2,13 @@
 title: "Morton Aluminium Estimator & Project Pipeline"
 slug: "estimator-jendela-pintu-aluminium"
 category: "Custom Software Development"
+cardTitle: "Estimator Jendela & Pintu Aluminium"
+cardTag: "ESTIMATOR INDUSTRI"
+order: 1
 industry: "Manufacturing"
 solution: "Web-Based Estimation System"
 platform: "Web Application"
-thumbnail: ""
+thumbnail: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/64a7e6b4-ed1b-4529-b7a8-523e641aadcd/aluminium-estimator-1767985968280.png?width=8000&height=8000&resize=contain"
 heroImage: ""
 ---
 

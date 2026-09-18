@@ -1,20 +1,64 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-const projects: { category: string; title: string; image: string; href?: string }[] = [
-  { category: 'Estimator Industri', title: 'Estimator Jendela & Pintu Aluminium', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/64a7e6b4-ed1b-4529-b7a8-523e641aadcd/aluminium-estimator-1767985968280.png?width=8000&height=8000&resize=contain', href: '/portfolio/estimator-jendela-pintu-aluminium/' },
-  { category: 'Aplikasi Manufaktur', title: 'Bill of Materials Manufaktur', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/1-5.png?', href: '/portfolio/bill-of-materials-manufaktur/' },
-  { category: 'Manajemen Gudang', title: 'Sistem Gudang', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/2-6.png?', href: '/portfolio/tunggal-idaman-abdi-inventory-inbound/' },
-  { category: 'Sistem Pesanan Web', title: 'Web Order Manufaktur', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/3-7.png?', href: '/portfolio/tostem-elevation-sales-distributor-order/' },
-  { category: 'Tool Keuangan', title: 'Sistem Anggaran Pengeluaran', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/4-8.png?', href: '/portfolio/sistem-anggaran-pengeluaran/' },
-  { category: 'E-Commerce', title: 'AWL Syirkah and Gold Sell', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/5-9.png?', href: '/portfolio/awl-syirkah-and-gold-sell/' },
-  { category: 'Point of Sale', title: 'Point of Sales System', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/6-10.png?', href: '/portfolio/point-of-sales-inventory-system/' },
-  { category: 'Company Profile', title: 'Website Profil & E-Catalogue', image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/7-11.png?', href: '/portfolio/website-company-profil-e-catalogue/' },
-];
+import { ArrowUpRight } from 'lucide-react';
+import { getAllPortfolios } from '@/lib/portfolio-content';
+import { SectionTag } from '@/components/home/section-tag';
 
 export default function PortfolioSection() {
-  return <section id="portfolio" className="bg-[#f5f8fc] py-20 md:py-24"><div className="container mx-auto px-6 lg:px-12">
-    <div className="mx-auto mb-14 max-w-3xl text-center"><p className="text-sm font-bold uppercase tracking-[0.2em] text-[#f58b01]">Portofolio Pilihan</p><h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">Sistem yang dirancang sesuai cara bisnis beroperasi.</h2></div>
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{projects.map((project) => { const card = <article className="group h-full overflow-hidden rounded-3xl border border-[#013e78]/10 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg"><div className="relative aspect-[4/3] bg-white p-5"><Image src={project.image} alt={project.title} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-contain p-5 transition-transform duration-300 group-hover:scale-105" /></div><div className="border-t border-[#013e78]/10 p-6"><p className="text-sm font-semibold uppercase tracking-wide text-[#f58b01]">{project.category}</p><h3 className="mt-3 text-xl font-bold leading-tight text-[#013e78]">{project.title}</h3></div></article>; return project.href ? <Link key={project.title} href={project.href}>{card}</Link> : <div key={project.title}>{card}</div>; })}</div>
-  </div></section>;
+  const projects = getAllPortfolios();
+
+  return (
+    <section id="portfolio" className="bg-[#F6F8FB] py-16 md:py-22">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12">
+        <div className="max-w-[720px]">
+          <SectionTag>PORTFOLIO PILIHAN</SectionTag>
+          <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[#0C1425] md:text-[38px]">
+            Sistem yang dirancang sesuai cara bisnis beroperasi.
+          </h2>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {projects.map((project) => (
+            <Link
+              key={project.slug}
+              href={`/portfolio/${project.slug}/`}
+              className="group flex flex-col overflow-hidden rounded-2xl border border-[#E4E9F2] bg-white transition-colors hover:border-[#0A1E43]/30"
+            >
+              <div
+                className="relative flex h-[168px] items-center justify-center overflow-hidden p-4"
+                style={{ background: 'linear-gradient(225deg, #13264A 0%, #060D1D 100%)' }}
+              >
+                {project.thumbnail ? (
+                  <Image
+                    src={project.thumbnail}
+                    alt={project.cardTitle ?? project.title}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="h-full w-full rounded-lg border border-[#1C3050] bg-[#0A1428]" aria-hidden="true" />
+                )}
+              </div>
+              <div className="flex flex-1 flex-col gap-2.5 px-5 pb-5 pt-[18px]">
+                <span className="font-mono text-[10px] tracking-[0.15em] text-[#F97316]">
+                  {project.cardTag ?? project.category?.toUpperCase()}
+                </span>
+                <h3 className="flex-1 font-[family-name:var(--font-display)] text-[16.5px] font-bold leading-[1.3] text-[#0C1425]">
+                  {project.cardTitle ?? project.title}
+                </h3>
+                <span className="mt-1 inline-flex items-center gap-1.5 text-xs font-semibold text-[#56637A]">
+                  Lihat case study
+                  <ArrowUpRight
+                    className="h-3.5 w-3.5 text-[#F97316] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    aria-hidden="true"
+                  />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

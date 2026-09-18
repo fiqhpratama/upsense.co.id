@@ -2,6 +2,9 @@
 title: "Website Company Profil & E-Catalogue"
 slug: "website-company-profil-e-catalogue"
 category: "Web Development"
+cardTitle: "Website Profil & E-Catalogue"
+cardTag: "COMPANY PROFILE"
+order: 8
 industry: "Retail, Manufacturing, B2B Sales"
 solution: "Company Profile & E-Catalogue Website"
 platform: "Web Application"

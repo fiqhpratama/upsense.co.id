@@ -2,6 +2,9 @@
 title: "AWL Syirkah Lelang & Tender Emas"
 slug: "awl-syirkah-and-gold-sell"
 category: "Custom Software Development"
+cardTitle: "AWL Syirkah and Gold Sell"
+cardTag: "E-COMMERCE"
+order: 6
 industry: "Financial Technology & Commodity Trading"
 solution: "Sharia-Compliant Precious Metal Trading Platform"
 platform: "Web Application"

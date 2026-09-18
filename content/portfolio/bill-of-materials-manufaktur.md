@@ -2,12 +2,15 @@
 title: "TOSTEM Bill of Materials & Supplychain Management"
 slug: "bill-of-materials-manufaktur"
 category: "Custom Software Development"
+cardTitle: "Bill of Materials Manufaktur"
+cardTag: "APLIKASI MANUFAKTUR"
+order: 2
 industry: "Manufacturing"
 solution: "Bill of Materials & Supply Chain Management System"
 platform: "Web Application"
 client: "TOSTEM"
 brand_group: "LIXIL Group"
-thumbnail: ""
+thumbnail: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/1-5.png?"
 heroImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/e5bb03c6-716d-4d52-b6a5-c70435ea9eb6-upsense-co-id/assets/images/1-5.png?"
 ---
 

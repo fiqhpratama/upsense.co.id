@@ -3,15 +3,16 @@ import { UPSENSE_META_DESCRIPTION } from "@/lib/site-meta";
 import { UPSENSE_META_KEYWORDS } from "@/lib/site-keywords";
 import { SITE_TITLES } from "@/lib/site-titles";
 import Navigation from '@/components/sections/navigation';
-import HeroSection from '@/components/sections/hero';
 import Footer from '@/components/sections/footer';
 
-import AboutSection from '@/components/sections/about';
-import ServicesSection from '@/components/sections/services';
-import ProcessSection from '@/components/sections/process';
+import Hero from '@/components/home/hero';
+import ClientStrip from '@/components/home/client-strip';
+import About from '@/components/home/about';
+import Services from '@/components/home/services';
+import Platforms from '@/components/home/platforms';
+import CaseStudies from '@/components/home/case-studies';
+import Industries from '@/components/home/industries';
 import TestimonialSection from '@/components/sections/testimonials';
-import IndustryExperienceSection from '@/components/sections/industry-experience';
-import ClientsSection from '@/components/sections/clients';
 
 export const metadata: Metadata = {
   title: SITE_TITLES.seo.home,
@@ -115,13 +116,14 @@ export default function Home() {
       />
       <Navigation />
       <main>
-        <HeroSection />
-        <ClientsSection />
-        <AboutSection />
-        <ServicesSection />
-        <ProcessSection />
+        <Hero />
+        <ClientStrip />
+        <About />
+        <Services />
+        <Platforms />
+        <CaseStudies />
         <TestimonialSection />
-        <IndustryExperienceSection />
+        <Industries />
       </main>
       <Footer />
     </>

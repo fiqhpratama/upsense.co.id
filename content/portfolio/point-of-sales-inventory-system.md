@@ -2,6 +2,9 @@
 title: "Textile POS & Inventory"
 slug: "point-of-sales-inventory-system"
 category: "Custom Software Development"
+cardTitle: "Point of Sales System"
+cardTag: "POINT OF SALE"
+order: 7
 industry: "Textile Distribution"
 solution: "B2B Point of Sales & Inventory Management System"
 platform: "Web Application"

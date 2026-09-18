@@ -5,6 +5,9 @@ export type PortfolioContent = {
   title: string;
   slug: string;
   category?: string;
+  cardTitle?: string;
+  cardTag?: string;
+  order?: string;
   industry?: string;
   solution?: string;
   platform?: string;
@@ -29,7 +32,7 @@ function paragraphs(value: string) {
 }
 
 function parsePortfolio(source: string): PortfolioContent {
-  const [, frontmatter = '', body = ''] = source.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/) ?? [];
+  const [, frontmatter = '', body = ''] = source.replace(/^\uFEFF/, '').match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/) ?? [];
   const fields = Object.fromEntries([...frontmatter.matchAll(/^([\w]+):\s*["']?(.*?)["']?\s*$/gm)].map(([, key, value]) => [key, value]));
   const parts = [...body.matchAll(/^## (.+)\n([\s\S]*?)(?=^## |$(?![\s\S]))/gm)];
   const overview = body.match(/^# Project Overview\n([\s\S]*?)(?=^## |$(?![\s\S]))/m)?.[1] ?? '';
@@ -42,6 +45,12 @@ function parsePortfolio(source: string): PortfolioContent {
 
 export function getPortfolioSlugs() {
   return portfolioFiles().map((file) => parsePortfolio(fs.readFileSync(path.join(contentDirectory, file), 'utf8')).slug);
+}
+
+export function getAllPortfolios() {
+  return portfolioFiles()
+    .map((file) => parsePortfolio(fs.readFileSync(path.join(contentDirectory, file), 'utf8')))
+    .sort((a, b) => Number(a.order ?? 99) - Number(b.order ?? 99));
 }
 
 export function getPortfolio(slug: string) {

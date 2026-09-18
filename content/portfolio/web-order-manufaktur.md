@@ -2,6 +2,9 @@
 title: "TOSTEM Elevation Web Order"
 slug: "tostem-elevation-sales-distributor-order"
 category: "Custom Software Development"
+cardTitle: "Web Order Manufaktur"
+cardTag: "SISTEM PESANAN WEB"
+order: 4
 industry: "Manufacturing"
 solution: "Elevation Order Management System"
 platform: "Web Application"

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Navigation from '@/components/sections/navigation';
 import Footer from '@/components/sections/footer';
@@ -35,17 +36,77 @@ export default function PortfolioPage() {
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <Navigation />
-    <main className="bg-white pt-20">
-      <section className="bg-[#0a1e43] py-20 text-white md:py-28">
-        <div className="container mx-auto max-w-6xl px-6 text-center lg:px-12">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#ffd497]">Portfolio UPSENSE</p>
-          <h1 className="mt-5 text-4xl font-bold leading-tight text-white md:text-6xl">{SITE_TITLES.portfolio.heading}</h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/85 md:text-xl">Eksplorasi sistem enterprise, workflow, warehouse, budgeting, dan platform digital yang dirancang untuk menjawab kebutuhan operasional nyata.</p>
-          <a href="/contact/" className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 font-semibold text-[#013e78] hover:bg-[#f5f8fc]">Diskusikan Sistem Anda <ArrowRight className="h-4 w-4" /></a>
+    <main>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[#0b1730]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-40 -top-24 h-[640px] w-[640px] rounded-full opacity-70"
+          style={{
+            background:
+              'radial-gradient(circle at 65% 35%, rgba(125,211,252,0.28) 0%, rgba(28,58,102,0.35) 35%, rgba(10,23,48,0) 68%), radial-gradient(circle at 30% 70%, rgba(249,115,22,0.14) 0%, rgba(10,23,48,0) 55%)',
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-56 top-32 h-[420px] w-[420px] rounded-full opacity-60"
+          style={{ background: 'radial-gradient(circle at 60% 40%, rgba(125,211,252,0.2) 0%, rgba(10,23,48,0) 65%)' }}
+        />
+        <div className="container relative mx-auto px-4 pb-21 pt-32 md:px-6 md:pt-36 lg:px-12">
+          <div className="mx-auto flex max-w-[860px] flex-col items-center text-center">
+            
+            <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[56px]">
+              Solusi yang Kami Bangun untuk Bisnis
+            </h1>
+            <p className="mt-5 max-w-[660px] text-base leading-[1.64] text-[#8FA1BF] md:text-[16.5px]">
+              Eksplorasi sistem enterprise, workflow, warehouse, budgeting, dan platform digital yang
+              dirancang untuk menjawab kebutuhan operasional nyata.
+            </p>
+            <Link
+              href="/contact/"
+              className="mt-8 inline-flex items-center gap-2 bg-[#F97316] px-6 py-[15px] text-[15px] font-semibold text-white transition-colors hover:bg-[#ea6c0c]"
+            >
+              Diskusikan Sistem Anda
+              <ArrowRight className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
+
+      {/* Portfolio Grid */}
       <PortfolioSection />
-      <section className="py-20 md:py-24"><div className="container mx-auto px-6 lg:px-12"><div className="mx-auto max-w-5xl rounded-[32px] bg-[#fff4e0] p-10 text-center md:p-16"><h2 className="text-3xl font-bold text-[#013e78] md:text-5xl">{SITE_TITLES.portfolio.cta}</h2><p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-gray-600">Mulai dari kebutuhan operasional hingga implementasi, tim UPSENSE siap membantu merancang solusi yang tepat.</p><a href="/contact/" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#013e78] px-7 py-3 font-semibold text-white hover:bg-[#012d56]">Hubungi UPSENSE <ArrowRight className="h-4 w-4" /></a></div></div></section>
+
+      {/* CTA Section */}
+      <section className="bg-white pb-24 pt-2 md:pb-24">
+        <div className="container mx-auto px-4 md:px-6 lg:px-12">
+          <div
+            className="relative overflow-hidden rounded-[24px] px-8 py-12 md:p-16"
+            style={{ background: 'linear-gradient(225deg, #13264A 0%, #0A1E43 100%)' }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-24 -top-32 h-[480px] w-[480px] rounded-full"
+              style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.14) 0%, rgba(249,115,22,0) 70%)' }}
+            />
+            <div className="relative flex max-w-[680px] flex-col items-start">
+              <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold leading-[1.2] tracking-tight text-white md:text-[38px]">
+                Punya kebutuhan sistem atau ide yang ingin dikembangkan?
+              </h2>
+              <p className="mt-4 max-w-[560px] text-[15.5px] leading-[1.6] text-[#8FA1BF]">
+                Mulai dari kebutuhan operasional hingga implementasi, tim UPSENSE siap membantu
+                merancang solusi yang tepat.
+              </p>
+              <Link
+                href="/contact/"
+                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#F97316] px-[26px] py-[15px] text-[15px] font-semibold text-white transition-colors hover:bg-[#ea6c0c]"
+              >
+                Hubungi UPSENSE
+                <ArrowRight className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <Footer />
   </>;

@@ -2,6 +2,9 @@
 title: "TIA e-Expense Budgeting"
 slug: "sistem-anggaran-pengeluaran"
 category: "Custom Software Development"
+cardTitle: "Sistem Anggaran Pengeluaran"
+cardTag: "TOOL KEUANGAN"
+order: 5
 industry: "Pharmaceutical"
 solution: "Marketing Budget & Expense Management System"
 platform: "Web Application"
